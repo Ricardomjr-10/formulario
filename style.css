@@ -9,6 +9,10 @@ form {
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
+#cadastro-cliente, #cadastro-produto {
+    display: none;
+}
+
 label {
     margin-bottom: 10px;
 }
@@ -20,7 +24,7 @@ input[type="text"], input[type="email"], input[type="tel"] {
     border-radius: 5px;
 }
 
-button[type="submit"] {
+button[type="submit"], .btn-cad {
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
@@ -29,6 +33,7 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-button[type="submit"]:hover {
+button[type="submit"], .btn-cad:hover {
     background-color: #45a049;
 }
+
