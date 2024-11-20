@@ -9,6 +9,8 @@ form {
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
+
+
 #cadastro-cliente, #cadastro-produto {
     display: none;
 }
@@ -17,7 +19,7 @@ label {
     margin-bottom: 10px;
 }
 
-input[type="text"], input[type="email"], input[type="tel"] {
+input[type="text"], input[type="email"], input[type="tel"], .input-produto {
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
