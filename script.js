@@ -11,6 +11,7 @@ function showForm(formId) {
     }
 }
 
+
 const sqlite3 = require('sqlite3').verbose();
 
 const db = new sqlite3.Database('loja.db', (err) => {
@@ -36,6 +37,7 @@ const db = new sqlite3.Database('loja.db', (err) => {
             descricao TEXT,
             preco REAL,
             quantidade INTEGER
-        );
+            );
     `);
 });
+
