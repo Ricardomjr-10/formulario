@@ -11,7 +11,7 @@
     <button class="btn-cad" type="button" onclick="showForm('cadastro-produto')">Cadastro de produtos</button>
     <button class="btn-cad" type="button" onclick="mostrarClientes()">Mostrar Clientes</button>
     
-<form id="cadastro-cliente" action="/submit_form" method="POST">
+<form id="cadastro-cliente" >
     <label for="name">Nome:</label>
     <input type="text" id="name" name="name" required>
     
@@ -24,7 +24,7 @@
     <label for="address">Endereço:</label>
     <input type="text" id="address" name="address">
     
-    <button type="submit" onclick="mostrarClientes()">Cadastrar</button>
+    <button type="submit" >Cadastrar</button>
 </form>
 
 <form id="cadastro-produto" action="/submit_product" method="POST">
