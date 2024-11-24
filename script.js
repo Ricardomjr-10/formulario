@@ -17,3 +17,14 @@ function showForm(formId) {
 const sqlite3 = require('sqlite3').verbose()
 
 let db = new sqlite3.Database('clientes.db')
+
+// criar tabela
+
+db.run(`
+    CREATE TABLE IF NOT EXISTS clientes (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        email TEXT,
+        phone TEXT,
+        address TEXT
+    )`)
