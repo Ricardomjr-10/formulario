@@ -28,3 +28,10 @@ db.run(`
         phone TEXT,
         address TEXT
     )`)
+
+    // inserir dados 
+
+    db.run(` 
+        INSERT INTO clientes (name, email, phone, address)
+         VALUES ('Joaquim', '7mE0w@example.com', '123456789', 'Rua A, 123')
+        `)
