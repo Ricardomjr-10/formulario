@@ -49,3 +49,12 @@ db.run(`
         // fechar conexao
 
         db.close()
+
+        //instalando express
+
+        //npm install express   
+    // importando express
+
+    const express = require('express')
+
+    const app = express()
