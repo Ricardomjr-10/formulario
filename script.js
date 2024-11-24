@@ -45,3 +45,7 @@ db.run(`
                 console.log(rows)
             }
         })
+
+        // fechar conexao
+
+        db.close()
