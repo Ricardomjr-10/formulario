@@ -18,6 +18,19 @@ formClientes.addEventListener('submit', (event) => {
 
     const name = document.getElementById('name').value
     const email = document.getElementById('email').value
+    const phone = document.getElementById('phone').value
+    const address = document.getElementById('address').value
+
+    // inserir dados no banco de dados
+
+    db.run(`
+        INSERT INTO clientes (name, email, phone, address)
+         VALUES ('${name}', '${email}', ${phone}, '${address})
+        `)
+
+        // limpar formulario
+
+        formClientes.reset()
 
 })
 
