@@ -1,16 +1,25 @@
-// const formClientes = document.getElementById('cadastro-cliente');
-// const formProdutos = document.getElementById('cadastro-produto');
+const formClientes = document.getElementById('cadastro-cliente');
+const formProdutos = document.getElementById('cadastro-produto');
 
-// function showForm(formId) {
-//     if (formId === 'cadastro-cliente') {
-//         formProdutos.style.display = 'none';
-//         formClientes.style.display = 'flex';
-//     } else if (formId === 'cadastro-produto') {
-//         formProdutos.style.display = 'flex'
-//         formClientes.style.display = 'none';
-//     }
-// }
+function showForm(formId) {
+    if (formId === 'cadastro-cliente') {
+        formProdutos.style.display = 'none';
+        formClientes.style.display = 'flex';
+    } else if (formId === 'cadastro-produto') {
+        formProdutos.style.display = 'flex'
+        formClientes.style.display = 'none';
+    }
+}
 
+// criar funcao do submit clientes
+
+formClientes.addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    const name = document.getElementById('name').value
+    const email = document.getElementById('email').value
+
+})
 
 // criar conexao com banco de dados 
 
@@ -55,6 +64,22 @@ db.run(`
         //npm install express   
     // importando express
 
-    const express = require('express')
+    // const express = require('express')
+    // const app = express()
 
-    const app = express()
+    // //criando rotas 
+
+    // app.get('/clientes', (req, res) => {
+    //     db.all('SELECT * FROM clientes', (err, rows) => {
+    //         if (err) {
+    //             res.status(500).send(err)
+    //         } else {
+    //             res.json(rows)
+    //         }
+    //     })
+    // })
+    // // iniciando servidor na porta 3000s
+
+    // app.listen(3000, () => {
+    //     console.log('Servidor rodando na porta 3000')
+    // })
