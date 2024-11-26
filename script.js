@@ -1,5 +1,8 @@
 const formClientes = document.getElementById('cadastro-cliente');
 const formProdutos = document.getElementById('cadastro-produto');
+const lista = document.getElementById('lista-clientes');
+const mostrarClientesBtn = document.getElementById('mostrar-clientes');
+
 
 // criar conexao com banco de dados 
 
@@ -56,15 +59,19 @@ formClientes.addEventListener('submit', (event) => {
 
 // mostrar clientes cadastrados
 
-const mostrarClientes =  () => {
+ mostrarClientesBtn.addEventListener('click', ()  => {
     db.all('SELECT * FROM clientes', (err, rows) => {
         if (err) {
             console.log(err)
         } else {
-            console.log(rows)
+            rows.forEach((row) => {
+                const li = document.createElement('li')
+                li.textContent = `${row.name} - ${row.email} - ${row.phone} - ${row.address}`
+                lista.appendChild(li)
+            })
         }
     })
-}
+})
 
 
     // // inserir dados 
@@ -76,13 +83,13 @@ const mostrarClientes =  () => {
 
         //consultar dados
 
-        db.all('SELECT * FROM clientes', (err, rows) => {
-            if (err) {
-                console.log(err)
-            } else {
-                console.log(rows)
-            }
-        })
+        // db.all('SELECT * FROM clientes', (err, rows) => {
+        //     if (err) {
+        //         console.log(err)
+        //     } else {
+        //         console.log(rows)
+        //     }
+        // })
 
         // fechar conexao
 
