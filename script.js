@@ -1,6 +1,24 @@
 const formClientes = document.getElementById('cadastro-cliente');
 const formProdutos = document.getElementById('cadastro-produto');
 
+// criar conexao com banco de dados 
+
+const sqlite3 = require('sqlite3').verbose()
+
+let db = new sqlite3.Database('clientes.db')
+
+// criar tabela
+
+db.run(`
+    CREATE TABLE IF NOT EXISTS clientes (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        email TEXT,
+        phone TEXT,
+        address TEXT
+    )`)
+    
+
 function showForm(formId) {
     if (formId === 'cadastro-cliente') {
         formProdutos.style.display = 'none';
@@ -32,31 +50,29 @@ formClientes.addEventListener('submit', (event) => {
 
         formClientes.reset()
 
+        alert('Cliente cadastrado com sucesso!')
+
 })
 
-// criar conexao com banco de dados 
+// mostrar clientes cadastrados
 
-const sqlite3 = require('sqlite3').verbose()
+const mostrarClientes =  () => {
+    db.all('SELECT * FROM clientes', (err, rows) => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(rows)
+        }
+    })
+}
 
-let db = new sqlite3.Database('clientes.db')
 
-// criar tabela
+    // // inserir dados 
 
-db.run(`
-    CREATE TABLE IF NOT EXISTS clientes (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        email TEXT,
-        phone TEXT,
-        address TEXT
-    )`)
-
-    // inserir dados 
-
-    db.run(` 
-        INSERT INTO clientes (name, email, phone, address)
-         VALUES ('Joaquim', '7mE0w@example.com', '123456789', 'Rua A, 123')
-        `)
+    // db.run(` 
+    //     INSERT INTO clientes (name, email, phone, address)
+    //      VALUES ('Joaquim', '7mE0w@example.com', '123456789', 'Rua A, 123')
+    //     `)
 
         //consultar dados
 
