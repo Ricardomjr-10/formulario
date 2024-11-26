@@ -57,6 +57,31 @@ formClientes.addEventListener('submit', (event) => {
 
 })
 
+// criar funcao do submit produtos
+
+formProdutos.addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    const product_name = document.getElementById('product_name').value
+    const product_description = document.getElementById('product_description').value
+    const product_price = document.getElementById('product_price').value
+    const product_quantity = document.getElementById('product_quantity').value
+
+    // inserir dados no banco de dados
+
+    db.run(`
+        INSERT INTO produtos (product_name, product_description, product_price, product_quantity)
+         VALUES ('${product_name}', '${product_description}', ${product_price}, ${product_quantity})
+        `)
+
+        // limpar formulario
+
+        formProdutos.reset()
+
+        alert('Produto cadastrado com sucesso!')
+        
+})
+
 // mostrar clientes cadastrados
 
  mostrarClientesBtn.addEventListener('click', ()  => {
@@ -65,6 +90,7 @@ formClientes.addEventListener('submit', (event) => {
             console.log(err)
         } else {
             rows.forEach((row) => {
+                lista.innerHTML = ''
                 const li = document.createElement('li')
                 li.textContent = `${row.name} - ${row.email} - ${row.phone} - ${row.address}`
                 lista.appendChild(li)
