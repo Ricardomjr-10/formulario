@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulario de cadastro</title>
+</head>
+<body>
+    <button class="btn-cad" type="button" onclick="showForm('cadastro-cliente')">Cadastro de clientes</button>
+    <button class="btn-cad" type="button" onclick="showForm('cadastro-produto')">Cadastro de produtos</button>
+    <button class="btn-cad" type="button" id="mostrar-clientes">Mostrar Clientes</button>
+    
+<form id="cadastro-cliente" >
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" required >
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="phone">Telefone:</label>
+    <input type="tel" id="phone" name="phone">
+    
+    <label for="address">Endereço:</label>
+    <input type="text" id="address" name="address">
+    
+    <button type="submit" >Cadastrar</button>
+</form>
+
+<form id="cadastro-produto" action="/submit_product" method="POST">
+    <label for="product_name">Nome do Produto:</label>
+    <input class="input-produto" type="text" id="product_name" name="product_name" required>
+    
+    <label for="product_description">Descrição do Produto:</label>
+    <input class="input-produto" type="text" id="product_description" name="product_description">
+    
+    <label for="product_price">Preço:</label>
+    <input class="input-produto" type="number" id="product_price" name="product_price" required step="0.01" min="0">
+    
+    <label for="product_quantity">Quantidade:</label>
+    <input class="input-produto" type="number" id="product_quantity" name="product_quantity" required min="0">
+    
+    <button type="submit">Cadastrar Produto</button>
+</form>
+    <ul id="lista-clientes"></ul>
+    
+    <script src="script.js"></script>
+    
+</body>
+</html>
