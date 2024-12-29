@@ -1,4 +1,5 @@
-
+const sqlite3 = require('sqlite3').verbose()
+const db = new sqlite3.Database('clientes.db');
 
 const formClientes = document.getElementById('cadastro-cliente');
 const formProdutos = document.getElementById('cadastro-produto');
@@ -8,7 +9,6 @@ const mostrarClientesBtn = document.getElementById('mostrar-clientes');
 
 // criar conexao com banco de dados sqlite
 
-const db = new sqlite3.Database('clientes.db');
 
 db.run(`
     CREATE TABLE IF NOT EXISTS clientes (
