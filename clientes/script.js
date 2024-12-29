@@ -1,4 +1,4 @@
-const { Database } = require("sqlite3");
+
 
 const formClientes = document.getElementById('cadastro-cliente');
 const formProdutos = document.getElementById('cadastro-produto');
@@ -6,22 +6,31 @@ const lista = document.getElementById('lista-clientes');
 const mostrarClientesBtn = document.getElementById('mostrar-clientes');
 
 
-// criar conexao com banco de dados 
+// criar conexao com banco de dados sqlite
 
-// const sqlite3 = require('sqlite3').verbose()
+const db = new sqlite3.Database('clientes.db');
 
-// let db = new sqlite3.Database('clientes.db')
+db.run(`
+    CREATE TABLE IF NOT EXISTS clientes (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        email TEXT,
+        phone INTEGER,
+        address TEXT
+    )
+`)
 
-// // criar tabela
+db.run(`
+    CREATE TABLE IF NOT EXISTS produtos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        product_name TEXT,
+        product_description TEXT,
+        product_price REAL,
+        product_quantity INTEGER
+    )
+`)
 
-// db.run(`
-//     CREATE TABLE IF NOT EXISTS clientes (
-//         id INTEGER PRIMARY KEY AUTOINCREMENT,
-//         name TEXT,
-//         email TEXT,
-//         phone TEXT,
-//         address TEXT
-//     )`)
+
     
 
 function showForm(formId) {
@@ -101,48 +110,4 @@ formProdutos.addEventListener('submit', (event) => {
 })
 
 
-    // // inserir dados 
 
-    // db.run(` 
-    //     INSERT INTO clientes (name, email, phone, address)
-    //      VALUES ('Joaquim', '7mE0w@example.com', '123456789', 'Rua A, 123')
-    //     `)
-
-        //consultar dados
-
-        // db.all('SELECT * FROM clientes', (err, rows) => {
-        //     if (err) {
-        //         console.log(err)
-        //     } else {
-        //         console.log(rows)
-        //     }
-        // })
-
-        // fechar conexao
-
-        //db.close()
-
-        //instalando express
-
-        //npm install express   
-    // importando express
-
-    // const express = require('express')
-    // const app = express()
-
-    // //criando rotas 
-
-    // app.get('/clientes', (req, res) => {
-    //     db.all('SELECT * FROM clientes', (err, rows) => {
-    //         if (err) {
-    //             res.status(500).send(err)
-    //         } else {
-    //             res.json(rows)
-    //         }
-    //     })
-    // })
-    // // iniciando servidor na porta 3000s
-
-    // app.listen(3000, () => {
-    //     console.log('Servidor rodando na porta 3000')
-    // })
