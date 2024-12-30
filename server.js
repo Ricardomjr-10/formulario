@@ -50,7 +50,16 @@ app.get('/get_clients', (req, res) => {
         }
     })
 })
-
+//mostrar produtos
+app.get('/get_products', (req, res) => {
+    db.all('SELECT * FROM produtos', (err, rows) => {
+        if (err) {
+            res.status(500).send('Erro ao buscar produtos')
+        } else {
+            res.json(rows)
+        }
+    })
+})
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)    
