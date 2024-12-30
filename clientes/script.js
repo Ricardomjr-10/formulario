@@ -1,12 +1,24 @@
-
+document.addEventListener('DOMContentLoaded', () => {
+    
+const tela = document.getElementById('tela');
 const formClientes = document.getElementById('cadastro-cliente');
 const formProdutos = document.getElementById('cadastro-produto');
 const lista = document.getElementById('lista-clientes');
 const mostrarClientesBtn = document.getElementById('mostrar-clientes');
+const btnCliente = document.getElementById('btnCliente');
+const btnProduto = document.getElementById('btnProduto');
 
   
-
-function showForm(formId) {
+btnCliente.addEventListener('click', () => {
+    showForm('cadastro-cliente')
+})
+btnProduto.addEventListener('click', () => {
+    showForm('cadastro-produto')
+})
+const showForm = (formId) => {
+    if(tela.style.display === 'none') {
+        tela.style.display = 'flex';
+    } 
     if (formId === 'cadastro-cliente') {
         formProdutos.style.display = 'none';
         formClientes.style.display = 'flex';
@@ -20,7 +32,6 @@ function showForm(formId) {
 
 formClientes.addEventListener('submit', (event) => {
     event.preventDefault()
-
     const name = document.getElementById('name').value
     const email = document.getElementById('email').value
     const phone = document.getElementById('phone').value
@@ -54,7 +65,6 @@ formClientes.addEventListener('submit', (event) => {
 
 formProdutos.addEventListener('submit', (event) => {
     event.preventDefault()
-
     const product_name = document.getElementById('product_name').value
     const product_description = document.getElementById('product_description').value
     const product_price = document.getElementById('product_price').value
@@ -86,15 +96,18 @@ formProdutos.addEventListener('submit', (event) => {
 })
 
 // mostrar clientes cadastrados
- 
-fetch('/get_clients')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(client => {
-            const li = document.createElement('li')
-            li.textContent = `${client.name} - ${client.email} - ${client.phone} - ${client.address}`
-            lista.appendChild(li)
-        })
-    })
+ mostrarClientesBtn.addEventListener('click', () => {
+     tela.style.display = 'none'
+     lista.innerHTML = ''
+     fetch('/get_clients')
+         .then(response => response.json())
+         .then(data => {
+             data.forEach(client => {
+                 const li = document.createElement('li')
+                 li.textContent = `${client.name} - ${client.email} - ${client.phone} - ${client.address}`
+                 lista.appendChild(li)
+             })
+         })
+ })
 
-
+})
