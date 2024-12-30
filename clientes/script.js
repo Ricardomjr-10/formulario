@@ -40,6 +40,9 @@ formClientes.addEventListener('submit', (event) => {
         alert('Cliente cadastrado com sucesso!')
         formClientes.reset()
     })
+    .catch(error => {
+        console.error('Error:', error)
+    })
 
         // limpar formulario
 
@@ -70,6 +73,9 @@ formProdutos.addEventListener('submit', (event) => {
         console.log('Data received:',data)
         alert('Produto cadastrado com sucesso!')
         formProdutos.reset()
+    })
+    .catch(error => {
+        console.error('Error:', error)
     })
 
 

@@ -23,7 +23,7 @@ app.post('/submit_client', (req, res) => {
 
     db.run(`
         INSERT INTO clientes (name, email, phone, address)
-         VALUES ('${name}', '${email}', ${phone}, '${address})
+         VALUES ('${name}', '${email}', ${phone}, '${address}')
         `)
 })
 
