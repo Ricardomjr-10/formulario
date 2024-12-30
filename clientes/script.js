@@ -1,37 +1,10 @@
-const sqlite3 = require('sqlite3').verbose()
-const db = new sqlite3.Database('clientes.db');
 
 const formClientes = document.getElementById('cadastro-cliente');
 const formProdutos = document.getElementById('cadastro-produto');
 const lista = document.getElementById('lista-clientes');
 const mostrarClientesBtn = document.getElementById('mostrar-clientes');
 
-
-// criar conexao com banco de dados sqlite
-
-
-db.run(`
-    CREATE TABLE IF NOT EXISTS clientes (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        email TEXT,
-        phone INTEGER,
-        address TEXT
-    )
-`)
-
-db.run(`
-    CREATE TABLE IF NOT EXISTS produtos (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        product_name TEXT,
-        product_description TEXT,
-        product_price REAL,
-        product_quantity INTEGER
-    )
-`)
-
-
-    
+  
 
 function showForm(formId) {
     if (formId === 'cadastro-cliente') {
@@ -55,10 +28,7 @@ formClientes.addEventListener('submit', (event) => {
 
     // inserir dados no banco de dados
 
-    db.run(`
-        INSERT INTO clientes (name, email, phone, address)
-         VALUES ('${name}', '${email}', ${phone}, '${address})
-        `)
+  
 
         // limpar formulario
 
@@ -80,10 +50,7 @@ formProdutos.addEventListener('submit', (event) => {
 
     // inserir dados no banco de dados
 
-    db.run(`
-        INSERT INTO produtos (product_name, product_description, product_price, product_quantity)
-         VALUES ('${product_name}', '${product_description}', ${product_price}, ${product_quantity})
-        `)
+
 
         // limpar formulario
 
