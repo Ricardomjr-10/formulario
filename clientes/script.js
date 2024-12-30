@@ -4,9 +4,12 @@ const tela = document.getElementById('tela');
 const formClientes = document.getElementById('cadastro-cliente');
 const formProdutos = document.getElementById('cadastro-produto');
 const lista = document.getElementById('lista-clientes');
+const listaProdutos = document.getElementById('lista-produtos');
 const mostrarClientesBtn = document.getElementById('mostrar-clientes');
+const mostrarProdutosBtn = document.getElementById('mostrar-produtos');
 const btnCliente = document.getElementById('btnCliente');
 const btnProduto = document.getElementById('btnProduto');
+
 
   
 btnCliente.addEventListener('click', () => {
@@ -18,6 +21,7 @@ btnProduto.addEventListener('click', () => {
 const showForm = (formId) => {
     if(tela.style.display === 'none') {
         tela.style.display = 'flex';
+       lista.innerHTML = ''
     } 
     if (formId === 'cadastro-cliente') {
         formProdutos.style.display = 'none';
@@ -106,6 +110,21 @@ formProdutos.addEventListener('submit', (event) => {
                  const li = document.createElement('li')
                  li.textContent = `${client.name} - ${client.email} - ${client.phone} - ${client.address}`
                  lista.appendChild(li)
+             })
+         })
+ })
+
+ // mostrar produtos cadastrados
+ mostrarProdutosBtn.addEventListener('click', () => {
+     tela.style.display = 'none'
+     listaProdutos.innerHTML = ''
+     fetch('/get_products')
+         .then(response => response.json())
+         .then(data => {
+             data.forEach(product => {
+                 const li = document.createElement('li')
+                 li.textContent = `${product.product_name} - ${product.product_description} - ${product.product_price} - ${product.product_quantity}`
+                 listaProdutos.appendChild(li)
              })
          })
  })
