@@ -1,7 +1,6 @@
 // criando servidor express
 const db = require('./database')
 const express = require('express')
-const bodyParser = require('body-parser')
 //const fs = require('fs')
 const app = express()
 const port = 3000
@@ -11,7 +10,8 @@ const port = 3000
 
 
 // criar rota para servir arquivos estaticos
-app.use(bodyParser.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 app.use(express.static('clientes'))
 
 //cadastrar clientes
@@ -41,7 +41,7 @@ app.post('/submit_product', (req, res) => {
 })
 
 //mostrar clientes
-app.get('/clientes', (req, res) => {
+app.get('/get_clients', (req, res) => {
     db.all('SELECT * FROM clientes', (err, rows) => {
         if (err) {
             res.status(500).send('Erro ao buscar clientes')

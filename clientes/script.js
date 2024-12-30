@@ -34,12 +34,16 @@ formClientes.addEventListener('submit', (event) => {
         },
         body: JSON.stringify({ name, email, phone, address })
     })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Data received:', data)
+        alert('Cliente cadastrado com sucesso!')
+        formClientes.reset()
+    })
 
         // limpar formulario
 
-        formClientes.reset()
 
-        alert('Cliente cadastrado com sucesso!')
 
 })
 
@@ -61,13 +65,17 @@ formProdutos.addEventListener('submit', (event) => {
         },
         body: JSON.stringify({ product_name, product_description, product_price, product_quantity })
     })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Data received:',data)
+        alert('Produto cadastrado com sucesso!')
+        formProdutos.reset()
+    })
 
 
         // limpar formulario
 
-        formProdutos.reset()
 
-        alert('Produto cadastrado com sucesso!')
 
 })
 
