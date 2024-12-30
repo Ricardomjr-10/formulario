@@ -27,8 +27,13 @@ formClientes.addEventListener('submit', (event) => {
     const address = document.getElementById('address').value
 
     // inserir dados no banco de dados
-
-  
+    fetch('/submit_client', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, phone, address })
+    })
 
         // limpar formulario
 
@@ -49,7 +54,13 @@ formProdutos.addEventListener('submit', (event) => {
     const product_quantity = document.getElementById('product_quantity').value
 
     // inserir dados no banco de dados
-
+    fetch('/submit_product', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ product_name, product_description, product_price, product_quantity })
+    })
 
 
         // limpar formulario
@@ -61,20 +72,15 @@ formProdutos.addEventListener('submit', (event) => {
 })
 
 // mostrar clientes cadastrados
- mostrarClientesBtn.addEventListener('click', ()  => {
-    db.all('SELECT * FROM clientes', (err, rows) => {
-        if (err) {
-            lista.innerHTML = 'Erro ao buscar clientes'
-        } else {
-            rows.forEach((row) => {
-                lista.innerHTML = ''
-                const li = document.createElement('li')
-                li.textContent = `${row.name} - ${row.email} - ${row.phone} - ${row.address}`
-                lista.appendChild(li)
-            })
-        }
+ 
+fetch('/get_clients')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(client => {
+            const li = document.createElement('li')
+            li.textContent = `${client.name} - ${client.email} - ${client.phone} - ${client.address}`
+            lista.appendChild(li)
+        })
     })
-})
-
 
 
