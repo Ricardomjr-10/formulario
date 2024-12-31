@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // criar funcao do submit clientes
-
+    if(formClientes) {
     formClientes.addEventListener('submit', (event) => {
         event.preventDefault()
         const name = document.getElementById('name').value
@@ -54,20 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 console.log('Data received:', data)
                 alert('Cliente cadastrado com sucesso!')
-                formClientes.reset()
+               formClientes.reset()
             })
             .catch(error => {
                 console.error('Error:', error)
             })
 
         // limpar formulario
-
-
-
     })
+}
 
     // criar funcao do submit produtos
-
+    if(formProdutos) {
     formProdutos.addEventListener('submit', (event) => {
         event.preventDefault()
         const product_name = document.getElementById('product_name').value
@@ -92,13 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => {
                 console.error('Error:', error)
             })
-
-
         // limpar formulario
-
-
-
     })
+}
 
     // mostrar clientes cadastrados
     mostrarClientesBtn.addEventListener('click', () => {
@@ -133,3 +127,14 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 })
+
+//falta fazer
+//limpar formulario
+//se o protudo ou cliente ja estiverem cadastrados nao deixar cadastrar
+//fazer a parte de editar e deletar produtos e clientes
+//fazer um botao de vendas para cadastrar vendas em que selecionar o produto e o cliente e a quantidade e o valor da venda e dar saida de estoque
+//mostar os produtos e clientes cadastrados em uma tabela
+//criar o layout para smartphone
+//criar o layout para tablet
+//criar tela de login para cadastro de usuarios e permitir acesso aos cadastros de produtos e clientes somente para usuarios logados
+
