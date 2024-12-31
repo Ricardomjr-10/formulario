@@ -11,6 +11,7 @@
     <button class="btn-cad" type="button" id="btnProduto">Cadastro de produtos</button>
     <button class="btn-cad" type="button" id="mostrar-clientes">Mostrar Clientes</button>
     <button class="btn-cad" type="button" id="mostrar-produtos">Mostrar Produtos</button>
+    <button class="btn-cad" type="button" id="adicionar-vendas">Adicionar Vendas</button>
     
     <div id="tela">
 <form id="cadastro-cliente" action="/submit_client" method="POST">
@@ -44,6 +45,19 @@
     
     <button type="submit">Cadastrar Produto</button>
 </form>
+
+    <form id="vendas" action="/submit_venda" method="POST">
+        <label for="client_name">Nome do Cliente:</label>
+        <input type="text" id="client_name" name="client_name" required>
+        
+        <label for="product_name">Nome do Produto:</label>
+        <input type="text" id="product_name" name="product_name" required>
+        
+        <label for="quantity">Quantidade:</label>
+        <input type="number" id="quantity" name="quantity" required>
+        
+        <button type="submit">Cadastrar Venda</button>
+    </form>
     </div>
     <ul id="lista-clientes"></ul>
     <ul id="lista-produtos"></ul>

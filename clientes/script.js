@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     if(btnCliente && btnProduto) {
-        
+
         btnCliente.addEventListener('click', () => {
             showForm('cadastro-cliente')
         })
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 //falta fazer
-//limpar formulario
+//limpar formulario - feito
 //se o protudo ou cliente ja estiverem cadastrados nao deixar cadastrar
 //fazer a parte de editar e deletar produtos e clientes
 //fazer um botao de vendas para cadastrar vendas em que selecionar o produto e o cliente e a quantidade e o valor da venda e dar saida de estoque
