@@ -25,6 +25,7 @@ app.post('/submit_client', (req, res) => {
         INSERT INTO clientes (name, email, phone, address)
          VALUES ('${name}', '${email}', ${phone}, '${address}')
         `)
+        res.json('Cliente cadastrado com sucesso!')
 })
 
 //cadastrar produtos
@@ -38,6 +39,7 @@ app.post('/submit_product', (req, res) => {
         INSERT INTO produtos (product_name, product_description, product_price, product_quantity)
          VALUES ('${product_name}', '${product_description}', ${product_price}, ${product_quantity})
         `)
+        res.json('Produto cadastrado com sucesso!')
 })
 
 //mostrar clientes

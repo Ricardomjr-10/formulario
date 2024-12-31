@@ -11,13 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnProduto = document.getElementById('btnProduto');
 
 
-
-    btnCliente.addEventListener('click', () => {
-        showForm('cadastro-cliente')
-    })
-    btnProduto.addEventListener('click', () => {
-        showForm('cadastro-produto')
-    })
+    if(btnCliente && btnProduto) {
+        
+        btnCliente.addEventListener('click', () => {
+            showForm('cadastro-cliente')
+        })
+        btnProduto.addEventListener('click', () => {
+            showForm('cadastro-produto')
+        })
+    }
     const showForm = (formId) => {
         if (tela.style.display === 'none') {
             tela.style.display = 'flex';
@@ -95,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
     // mostrar clientes cadastrados
+    if(mostrarClientesBtn) {
     mostrarClientesBtn.addEventListener('click', () => {
         tela.style.display = 'none'
         lista.innerHTML = ''
@@ -109,8 +112,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             })
     })
+}
 
     // mostrar produtos cadastrados
+    if(mostrarProdutosBtn) {
     mostrarProdutosBtn.addEventListener('click', () => {
         tela.style.display = 'none'
         listaProdutos.innerHTML = ''
@@ -125,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             })
     })
-
+    }
 })
 
 //falta fazer
