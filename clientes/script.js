@@ -3,12 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const tela = document.getElementById('tela');
     const formClientes = document.getElementById('cadastro-cliente');
     const formProdutos = document.getElementById('cadastro-produto');
+    const formVendas = document.getElementById('vendas');
     const lista = document.getElementById('lista-clientes');
     const listaProdutos = document.getElementById('lista-produtos');
     const mostrarClientesBtn = document.getElementById('mostrar-clientes');
     const mostrarProdutosBtn = document.getElementById('mostrar-produtos');
     const btnCliente = document.getElementById('btnCliente');
     const btnProduto = document.getElementById('btnProduto');
+    const btnVendas = document.getElementById('adicionar-vendas');
 
 
     if(btnCliente && btnProduto) {
@@ -19,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
         btnProduto.addEventListener('click', () => {
             showForm('cadastro-produto')
         })
+        btnVendas.addEventListener('click', () => {
+            showForm('vendas')
+        })
     }
     const showForm = (formId) => {
         if (tela.style.display === 'none') {
@@ -27,11 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
             listaProdutos.innerHTML = ''
         }
         if (formId === 'cadastro-cliente') {
+            formVendas.style.display = 'none'
             formProdutos.style.display = 'none';
             formClientes.style.display = 'flex';
         } else if (formId === 'cadastro-produto') {
             formProdutos.style.display = 'flex'
             formClientes.style.display = 'none';
+            formVendas.style.display = 'none'
+        }else if (formId === 'vendas') {
+            formProdutos.style.display = 'none'
+            formClientes.style.display = 'none';
+            formVendas.style.display = 'flex'
         }
     }
 

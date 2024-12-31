@@ -11,7 +11,7 @@ form {
 
 
 
-#cadastro-cliente, #cadastro-produto {
+#cadastro-cliente, #cadastro-produto, #vendas {
     display: none;
 }
 
@@ -19,7 +19,7 @@ label {
     margin-bottom: 10px;
 }
 
-input[type="text"], input[type="email"], input[type="tel"], .input-produto {
+input[type="text"], input[type="email"], input[type="tel"], input[type="number"], .input-produto {
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
